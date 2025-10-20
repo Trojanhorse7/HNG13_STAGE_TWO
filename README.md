@@ -81,3 +81,32 @@ Delete a string by its value.
 - Prisma
 - PostgreSQL
 - Compromise (NLP)
+
+## Database Schema
+
+### StringAnalysis Table
+
+![Database Schema](DatabaseSchema.png)
+
+**Schema Details:**
+- **Primary Key**: `id` (SHA-256 hash of the string value)
+- **Unique Constraint**: `id` ensures no duplicate strings
+- **JSON Field**: `characterFrequencyMap` stores character frequency as key-value pairs
+- **Auto-timestamp**: `createdAt` is automatically set on record creation
+
+**Table Structure:**
+```
+┌─────────────────────┐
+│   StringAnalysis    │
+├─────────────────────┤
+│ id (String)         │ ← Primary Key, Unique
+│ value (String)      │ ← The input string
+│ length (Int)        │ ← String length
+│ isPalindrome (Bool) │ ← Palindrome check
+│ uniqueCharacters(Int│ ← Count of unique chars
+│ wordCount (Int)     │ ← Number of words
+│ sha256Hash (String) │ ← SHA-256 hash
+│ characterFrequency..│ ← JSON frequency map
+│ createdAt (DateTime)│ ← Auto-generated
+└─────────────────────┘
+```
