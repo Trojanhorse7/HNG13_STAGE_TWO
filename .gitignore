@@ -12,8 +12,6 @@
 #!.yarn/cache
 .pnp.*
 
-/src/generated/prisma
-
 # Dependencies
 node_modules/
 package-lock.json
